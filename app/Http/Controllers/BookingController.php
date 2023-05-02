@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BookingInfo;
+use App\Models\DineUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\SendMail;
@@ -156,8 +157,9 @@ class BookingController extends Controller
     {
         $BookingInfo = DB::table('booking_info')
         ->join('house_details','booking_info.house_id',"=",'house_details.id')
-        ->join('dineusers','dineusers.id','=','house_details.user_id')
+        ->join('dineusers','dineusers.id','=','booking_info.user_id')
         ->where('house_details.user_id','=',$id)
+        ->select('*', 'house_details.id as hid', 'dineusers.id as did')
         ->get();
 
         return response()->json([

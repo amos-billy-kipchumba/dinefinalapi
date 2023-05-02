@@ -249,6 +249,7 @@ Route::delete('/delete-house/{id}', [HouseDetailsController::class, 'deleteHouse
 Route::post('/forgot-password/{e_mail}', [DineUserController::class, 'forgotPassword']);
 Route::post('/login', [DineUserController::class, 'getIn']);
 Route::get('/get-host-join-details/{id}', [DineUserController::class, 'getHostJoinDetails']);
+Route::get('/get-super-id', [DineUserController::class, 'getSuperId']);
 Route::get('/get-host-specific-details/{id}', [DineUserController::class, 'getHostSpecificDetails']);
 Route::get('/get-gifted-specific-details/{id}', [DineUserController::class, 'getGiftedSpecificDetails']);
 Route::get('/get-one-host-details/{id}', [DineUserController::class, 'getOneHostDetails']);

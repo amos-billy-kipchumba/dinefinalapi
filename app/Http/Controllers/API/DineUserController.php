@@ -652,4 +652,22 @@ class DineUserController extends Controller
             'hostJoin'=>$DineUser,
         ]);
     }
+
+    public function getSuperId() {
+        $DineUser = DineUser::where('user_type', '=', 3)->first();
+        if($DineUser)
+        {
+            return response()->json([
+                'status'=> 200,
+                'super_id'=> $DineUser,
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status'=> 404,
+                'message'=> 'No record with such id found!',
+            ]);
+        }
+    }
 }
