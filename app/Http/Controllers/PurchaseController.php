@@ -28,7 +28,7 @@ class PurchaseController extends Controller
         $Purchase->received = "false";
         $Purchase->user_id = $request->input('user_id');
         $Purchase->pay_type = $request->input('pay_type');
-        // $Purchase->mpesa_id = 1;
+        $Purchase->mpesa_id = $request->input('pay_id');
         // $Purchase->bank_id = 1;
         $Purchase->save();
 
